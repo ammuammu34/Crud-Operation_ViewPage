@@ -22,6 +22,7 @@ public class ProductController {
 	@GetMapping("/delete")
 	public String delete(@RequestParam("id") Integer productId,Model model ) {
 		repo.deleteById(productId);
+		model.addAttribute("msg", "product deleted");
 		model.addAttribute("products",repo.findAll());
 		return "data";
 	}
